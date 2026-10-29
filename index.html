@@ -445,6 +445,27 @@
         }
 
 
+
+        /* ---------- hero quick-quote form ---------- */
+        .hero-form {
+            margin: clamp(34px, 5vw, 48px) auto 0; max-width: 880px; text-align: left;
+            background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.1);
+            border-radius: 4px; padding: clamp(16px, 3vw, 24px);
+        }
+        .hero-form-title {
+            margin: 0 0 14px; font-family: var(--font-display); font-weight: 700;
+            font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim);
+        }
+        .hero-form-grid { display: grid; gap: 10px; grid-template-columns: repeat(4, 1fr) auto; }
+        .hero-form input {
+            width: 100%; padding: 15px 14px; background: var(--bg); color: var(--text);
+            border: 1px solid rgba(255,255,255,.16); border-radius: 3px; font: inherit; font-size: .95rem;
+        }
+        .hero-form input:focus { border-color: var(--accent); outline: none; }
+        .hero-form .btn { padding: 15px 26px; }
+        @media (max-width: 900px) { .hero-form-grid { grid-template-columns: 1fr 1fr; } .hero-form .btn { grid-column: 1 / -1; } }
+        @media (max-width: 520px) { .hero-form-grid { grid-template-columns: 1fr; } }
+
         /* ---------- motion + depth (design pilot) ---------- */
         .hero { position: relative; overflow: hidden; }
         .hero::before {
@@ -454,7 +475,10 @@
             pointer-events: none;
         }
         .hero > .wrap { position: relative; }
-        .hero h1 { font-size: clamp(2.2rem, 7vw, 4.4rem); }
+        .hero { padding-top: clamp(44px, 6vw, 72px); padding-bottom: clamp(44px, 6vw, 72px); }
+        .hero h1 { font-size: clamp(2.05rem, 5.2vw, 3.7rem); max-width: 22ch; }
+        .hero-ctas { margin-top: 28px; }
+        .hero-vp { margin-top: 18px; }
         .proof-stats {
             margin: clamp(26px, 4vw, 38px) auto 0; max-width: 880px;
             display: grid; gap: 1px; grid-template-columns: repeat(3, 1fr);
@@ -516,6 +540,18 @@
                 <a href="#contact" class="btn btn-primary">Get a Quote</a>
                 <a href="tel:727-623-2652" class="btn btn-secondary">Call 727-623-2652</a>
             </div>
+            <form class="hero-form" action="https://formspree.io/f/mjknplbe" method="POST">
+                <p class="hero-form-title">Check your date &mdash; same business day reply</p>
+                <input type="hidden" name="_subject" value="North Carolina Teleprompter - Hero Quick Quote">
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <div class="hero-form-grid">
+                    <input type="text" name="name" placeholder="Name" aria-label="Name" required autocomplete="name">
+                    <input type="text" name="contact" placeholder="Phone or email" aria-label="Phone or email" required autocomplete="email">
+                    <input type="text" name="date" placeholder="Event date" aria-label="Event date" required>
+                    <input type="text" name="venue" placeholder="City or venue" aria-label="City or venue" required>
+                    <button type="submit" class="btn btn-primary">Get a Quote</button>
+                </div>
+            </form>
         </div>
     </section>
 
